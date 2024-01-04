@@ -84,7 +84,7 @@
         <a href="../"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
-            Index
+            Welcome to MkDocs
         </a>
     </li>
                             
@@ -227,7 +227,42 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p></p>
+        <p><p>perl 模块Getopt::Long使用示例</p>
+<pre><code>use strict;
+use warnings;
+use Getopt::Long;
+
+my @ARGV2 = @ARGV;
+my $leng =10;
+my $data =&quot;x.txt&quot;;
+my $verb;
+my $help;
+
+die(&quot;error in options&quot;) unless GetOptions(
+    &quot;l|length=i&quot; =&gt; \$leng,
+    &quot;f|file=s&quot;   =&gt; \$data,
+    &quot;v|verbose&quot;  =&gt; \$verb,
+    &quot;h|help&quot;     =&gt; \$help,
+);
+
+
+sub usage {
+    print     
+&lt;&lt;USAGE
+    -l|--length &lt;number&gt;    set number of length
+    -f|--file &lt;str&gt;            set name of files
+    -v|--verbose            set verbose
+    -h|--help                 show this help information
+USAGE
+}
+
+if($help || @ARGV2 == 0){
+    exit 0 if &amp;usage();
+}
+
+print &quot;$leng\n$data\n$verb&quot;;
+</code></pre>
+<p><img alt="img" src="https://img2023.cnblogs.com/blog/1870934/202310/1870934-20231026140401129-670652814.png" /></p></p>
     </article>
 </section>
             <!-- endblock -->
